@@ -66,6 +66,13 @@ String urlFor(host,path) {
   return Uri.https(host, path).toString();
 }
 
+String textAt(e,selector) {
+  return e.querySelector(selector).text.trim();
+}
+
+String textFor(e) {
+  return e.text.trim();
+}
 Future<List> getHelp() async {
   List questions;
   final resp = await http.get(aURI('travel.london-luton.co.uk', 'helpme'));
@@ -80,7 +87,7 @@ Future<List> getHelp() async {
       var id = e.attributes['aria-controls'];
       var qs = document.querySelectorAll('#$id > div > div > h3');
       return {
-        'title': e.children[1].text.trim(),
+        'title': textFor(e.children[1]),
         'questions': qs.map((e) {
           var html = e.nextElementSibling.innerHtml;
           var md = html2md.convert(html);
@@ -92,7 +99,7 @@ Future<List> getHelp() async {
                   'https://travel.london-luton.co.uk${match.group(1).toString()}');
             }
           });
-          return {'text': e.text.trim(), 'markdown': md};
+          return {'text': textFor(e), 'markdown': md};
         }).toList()
       };
     }).toList();
@@ -142,7 +149,7 @@ Future<List> getDestinations() async {
       }
       return {
         'link': urlFor('travel.london-luton.co.uk', main.attributes['href']),
-        'name': main.querySelector('div > div > h3').text.trim(),
+        'name': textAt(main, 'div > div > h3'),
         'subs': msubs
       };
     }).toList();
@@ -204,7 +211,7 @@ Future<Map<String, Map>> getRetail() async {
                 'div.card--content.retailListing--card__content > div > div.col.col-8 > h4')
             .text
             .trim(),
-        'subtitle': e.querySelector('.retailListing__subtitle').text.trim(),
+        'subtitle': textAt(e, '.retailListing__subtitle'),
         'name': e.parent.attributes['data-shopname'],
         'category':
             e.parent.attributes['data-category'].split(';').toSet().toList(),
@@ -244,7 +251,7 @@ Future<Map<String, Map>> getRetail() async {
                 'div.card--content.retailListing--card__content > div > div.col.col-8 > h4')
             .text
             .trim(),
-        'subtitle': e.querySelector('.retailListing__subtitle').text.trim(),
+        'subtitle': textAt(e, '.retailListing__subtitle'),
         'name': e.parent.attributes['data-shopname'],
         'category':
             e.parent.attributes['data-category'].split(';').toSet().toList(),
