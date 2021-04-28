@@ -58,9 +58,17 @@ ${argParser.usage}
   }
 }
 
+Uri aURI(host,path) {
+  return Uri.https(host,path);
+}
+
+String urlFor(host,path) {
+  return Uri.https(host, path).toString();
+}
+
 Future<List> getHelp() async {
   List questions;
-  final resp = await http.get(Uri.https('travel.london-luton.co.uk', 'helpme'));
+  final resp = await http.get(aURI('travel.london-luton.co.uk', 'helpme'));
   var document;
   if (resp.statusCode == 200) {
     document = parse(resp.body);
@@ -95,7 +103,7 @@ Future<List> getHelp() async {
 Future<List> getDestinations() async {
   List dests;
   final resp =
-      await http.get(Uri.https('travel.london-luton.co.uk', 'destinations'));
+      await http.get(aURI('travel.london-luton.co.uk', 'destinations'));
   var document;
   if (resp.statusCode == 200) {
     document = parse(resp.body);
@@ -108,8 +116,7 @@ Future<List> getDestinations() async {
           '.nbf_tpl_pagesection_linked_norwd.nbf_tpl_it.destchild_linked > a');
       var msubs = subs.map((e) {
         return {
-          'link': Uri.https('travel.london-luton.co.uk', e.attributes['href'])
-              .toString(),
+          'link': urlFor('travel.london-luton.co.uk', e.attributes['href']),
           'name': e
               .querySelector('div > div.nbf_tpl_text.destinationchild')
               .text
@@ -124,9 +131,8 @@ Future<List> getDestinations() async {
                 '.nbf_tpl_pagesection_linked_norwd.nbf_tpl_it.childnode_linked2')
             .map((s) {
           return {
-            'link': Uri.https('travel.london-luton.co.uk',
-                    s.querySelector('a').attributes['href'])
-                .toString(),
+            'link': urlFor('travel.london-luton.co.uk',
+                    s.querySelector('a').attributes['href']),
             'name': s
                 .querySelector('a > div > div.nbf_tpl_text.destinationchild2')
                 .text
@@ -135,8 +141,7 @@ Future<List> getDestinations() async {
         }).toList());
       }
       return {
-        'link': Uri.https('travel.london-luton.co.uk', main.attributes['href'])
-            .toString(),
+        'link': urlFor('travel.london-luton.co.uk', main.attributes['href']),
         'name': main.querySelector('div > div > h3').text.trim(),
         'subs': msubs
       };
@@ -149,7 +154,7 @@ Future<List> getDestinations() async {
 
 Future<Map<String, Map>> getRetail() async {
   final resp = await http
-      .get(Uri.https('www.london-luton.co.uk', 'retail-and-shop-listing'));
+      .get(aURI('www.london-luton.co.uk', 'retail-and-shop-listing'));
   var document;
   var retail = <String, Map<String, List>>{
     'shops': {'filters': [], 'data': []},
@@ -173,10 +178,10 @@ Future<Map<String, Map>> getRetail() async {
         'div.retailListing__tab[data-tab-content="food"] > div.row.retailListing__listings > div > .card');
     retail['food']['data'] = fcards.map((e) {
       var imgSrc = e.getElementsByTagName('img').first.attributes['src'];
-      var uri = Uri.https('www.london-luton.co.uk', imgSrc);
+      var uri = aURI('www.london-luton.co.uk', imgSrc);
       var fname = imgSrc.split('/').last.split('?').first;
       downloadImage(uri, fname);
-      var mapFile = Uri.https(
+      var mapFile = aURI(
           'www.london-luton.co.uk',
           e
               .querySelector(
@@ -213,10 +218,10 @@ Future<Map<String, Map>> getRetail() async {
         'div.retailListing__tab[data-tab-content="shopping"] > div.row.retailListing__listings > div > .card');
     retail['shops']['data'] = scards.map((e) {
       var imgSrc = e.getElementsByTagName('img').first.attributes['src'];
-      var uri = Uri.https('www.london-luton.co.uk', imgSrc);
+      var uri = aURI('www.london-luton.co.uk', imgSrc);
       var fname = imgSrc.split('/').last.split('?').first;
       downloadImage(uri, fname);
-      var mapFile = Uri.https(
+      var mapFile = aURI(
           'www.london-luton.co.uk',
           e
               .querySelector(
@@ -254,7 +259,7 @@ Future<Map<String, Map>> getRetail() async {
 }
 
 Future<Map<String, List>> getFlights() async {
-  final resp = await http.get(Uri.https('www.london-luton.co.uk', 'flights'));
+  final resp = await http.get(aURI('www.london-luton.co.uk', 'flights'));
   var document;
   // ignore: omit_local_variable_types
   Map<String, List> elements = {'departures': [], 'arrivals': []};
