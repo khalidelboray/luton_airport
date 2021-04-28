@@ -124,10 +124,7 @@ Future<List> getDestinations() async {
       var msubs = subs.map((e) {
         return {
           'link': urlFor('travel.london-luton.co.uk', e.attributes['href']),
-          'name': e
-              .querySelector('div > div.nbf_tpl_text.destinationchild')
-              .text
-              .trim()
+          'name': textAt(e,'div > div.nbf_tpl_text.destinationchild')
         };
       }).toList();
       if (e.querySelector(
@@ -140,10 +137,7 @@ Future<List> getDestinations() async {
           return {
             'link': urlFor('travel.london-luton.co.uk',
                     s.querySelector('a').attributes['href']),
-            'name': s
-                .querySelector('a > div > div.nbf_tpl_text.destinationchild2')
-                .text
-                .trim()
+            'name': textAt(s,'a > div > div.nbf_tpl_text.destinationchild2')
           };
         }).toList());
       }
@@ -202,15 +196,9 @@ Future<Map<String, Map>> getRetail() async {
       }
       return {
         'img': fname,
-        'desc': e
-            .querySelector('.card--content.retailListing--card__content > p')
-            .text
-            .trim(),
-        'title': e
-            .querySelector(
-                'div.card--content.retailListing--card__content > div > div.col.col-8 > h4')
-            .text
-            .trim(),
+        'desc': textAt(e,'.card--content.retailListing--card__content > p'),
+        'title': textAt(e,
+                'div.card--content.retailListing--card__content > div > div.col.col-8 > h4'),
         'subtitle': textAt(e, '.retailListing__subtitle'),
         'name': e.parent.attributes['data-shopname'],
         'category':
@@ -242,15 +230,9 @@ Future<Map<String, Map>> getRetail() async {
       }
       return {
         'img': fname,
-        'desc': e
-            .querySelector('.card--content.retailListing--card__content > p')
-            .text
-            .trim(),
-        'title': e
-            .querySelector(
-                'div.card--content.retailListing--card__content > div > div.col.col-8 > h4')
-            .text
-            .trim(),
+        'desc': textAt(e,'.card--content.retailListing--card__content > p'),
+        'title': textAt(e,
+                'div.card--content.retailListing--card__content > div > div.col.col-8 > h4'),
         'subtitle': textAt(e, '.retailListing__subtitle'),
         'name': e.parent.attributes['data-shopname'],
         'category':
