@@ -9,7 +9,26 @@ var items = [
     'icon': Icons.home,
     'route': '/home'
   },
-
+  {
+    'text':  'Inside LLA',
+    'icon':  Icons.home_filled,
+    'route': '/inside'
+  },
+  {
+    'text':  'Flights',
+    'icon':  Icons.flight,
+    'route': '/flights'
+  },
+  {
+    'text': 'Destinations',
+    'icon': Icons.directions,
+    'route':'/dests'
+  },
+  {
+    'text': 'Help',
+    'icon': Icons.live_help_rounded,
+    'route': '/help'
+  },
 ];
 
 class MyDrawer extends StatelessWidget {

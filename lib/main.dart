@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:luton_airport/pages/dests.dart';
+import 'package:luton_airport/pages/flights.dart';
+import 'package:luton_airport/pages/help.dart';
 import 'package:luton_airport/pages/home.dart';
+import 'package:luton_airport/pages/insidella.dart';
 
 
 void main() => runApp(MyApp());
@@ -17,7 +21,10 @@ class MyApp extends StatelessWidget {
     home: HomePage(),
     routes: {
       '/home': (context) => HomePage(),
-
+      '/inside': (context) => InsideLLA(),
+      '/flights': (context) => Flights(),
+      '/help': (context)=> Help(),
+      '/dests': (context) => Dests()
     },
   );
 }

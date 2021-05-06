@@ -55,7 +55,90 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/data/help.json
+    - assets/data/dests.json
+    - assets/data/flights.json
+    - assets/data/retail.json
     - assets/images/logo.png
+    - assets/data/images/benugo-listing-image-800x470.jpg
+    - assets/data/images/Benugo.png
+    - assets/data/images/auntieannes-listing-image-800x470.jpg
+    - assets/data/images/Auntie-Anne's.png
+    - assets/data/images/burgerking-listing-image-800x470-2.jpg
+    - assets/data/images/burger-king.jpg
+    - assets/data/images/costa-listing-image-800x470.jpg
+    - assets/data/images/costa.jpg
+    - assets/data/images/fattorie-listing-image-800x470.jpg
+    - assets/data/images/fattorie-Garofalo.png
+    - assets/data/images/enrique-tomas-listing-image-800x470.jpg
+    - assets/data/images/enrique-tomas.png
+    - assets/data/images/friska-listing-image-800x470.jpg
+    - assets/data/images/Friska.png
+    - assets/data/images/pret-idl-listing-image-800x470.jpg
+    - assets/data/images/pret.png
+    - assets/data/images/krispy-kreme-listing-image-800x470.jpg
+    - assets/data/images/Krispy-Kreme.png
+    - assets/data/images/wasabi-listing-image-800x470.jpg
+    - assets/data/images/Wasabi.png
+    - assets/data/images/pret-gate7-listing-image-800x470.jpg
+    - assets/data/images/pret-listing-image-800x470.jpg
+    - assets/data/images/pret.jpg
+    - assets/data/images/starbucks-listing-image-800x470.jpg
+    - assets/data/images/Starbucks.png
+    - assets/data/images/starbucks2-listing-image-800x470.jpg
+    - assets/data/images/starbucks.jpg
+    - assets/data/images/frankies-listing-image-800x470.jpg
+    - assets/data/images/Frankie-and-benny's.png
+    - assets/data/images/smithfield-listing-image-800x470.jpg
+    - assets/data/images/smithfield.png
+    - assets/data/images/aelia-listing-image-800x470.jpg
+    - assets/data/images/duty-free.png
+    - assets/data/images/ice-listing-image-800x470.jpg
+    - assets/data/images/ice-airside.png
+    - assets/data/images/accessorize-listing-image-800x470.jpg
+    - assets/data/images/Accessorize.png
+    - assets/data/images/gb-listing-image-800x470.jpg
+    - assets/data/images/glorious-britain.png
+    - assets/data/images/mands-listing-image-800x470.jpg
+    - assets/data/images/m-s.jpg
+    - assets/data/images/dixons-listing-image-800x470.jpg
+    - assets/data/images/Dixons.png
+    - assets/data/images/hamleys-listing-image-800x470.jpg
+    - assets/data/images/hamley's.png
+    - assets/data/images/boots-listing-image-800x470.jpg
+    - assets/data/images/boots.png
+    - assets/data/images/ice-listing-image-800x470.jpg
+    - assets/data/images/ice.jpg
+    - assets/data/images/aelia-landside-listing-image-800x470.jpg
+    - assets/data/images/aelia.jpg
+    - assets/data/images/ice-listing-image-800x470.jpg
+    - assets/data/images/whsmiths-landside-listing-image-800x470.jpg
+    - assets/data/images/whsmith.jpg
+    - assets/data/images/whsmiths-airside2-listing-image-800x470.jpg
+    - assets/data/images/WHSmith.png
+    - assets/data/images/boss-listing-image-800x470.jpg
+    - assets/data/images/hugo-boss.png
+    - assets/data/images/rituals-listing-image-800x470.jpg
+    - assets/data/images/Rituals.png
+    - assets/data/images/collection-listing-image-800x470.jpg
+    - assets/data/images/collection.png
+    - assets/data/images/fiorelli-listing-image-800x470.jpg
+    - assets/data/images/Fiorelli.png
+    - assets/data/images/kurt-girger-listing-image-800x470.jpg
+    - assets/data/images/kurt-geiger.png
+    - assets/data/images/next-brand-image-690x453.jpg
+    - assets/data/images/next.png
+    - assets/data/images/oliver-bonas-listing-image-800x470.jpg
+    - assets/data/images/Oliver-Bonas.png
+    - assets/data/images/JD-listing-image-800x470.jpg
+    - assets/data/images/JD.png
+    - assets/data/images/ted-listing-image-800x470.jpg
+    - assets/data/images/ted-baker.png
+    - assets/data/images/sunglasshut-listing-image-800x470.jpg
+    - assets/data/images/sunglasses-hut.png
+    - assets/data/images/vics-sec-listing-image-800x470.jpg
+    - assets/data/images/Victoria's-secret.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
